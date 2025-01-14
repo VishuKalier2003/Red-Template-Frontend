@@ -9,9 +9,9 @@ const VariantHero = ({hero, onClick}) => {
     useEffect(() => {
         const getColor = async() => {
         setTimeout(async() => {
-            const present = await axios.get(`https://template-red.df.r.appspot.com/pane/search/tag?dataKey=${hero.dataKey}`);
+            const present = await axios.get(`http://localhost:8081/dom/search/nodeByEntry/tag?dataKey=${hero.dataKey}`);
         if(present.data === true) {
-            const colorValue = await axios.get(`https://template-red.df.r.appspot.com/one-hero/color?dataKey=${hero.dataKey}`);
+            const colorValue = await axios.get(`http://localhost:8080/one-hero/color?dataKey=${hero.dataKey}`);
             setColor(colorValue.data);
             }
         }, 3000);

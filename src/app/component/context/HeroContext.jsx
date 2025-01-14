@@ -36,9 +36,9 @@ export const HeroProvider = ({ children }) => {
 
     const addHero = async (key) => {
         try {
-            const response = await axios.post(`https://template-red.df.r.appspot.com/one-hero/create?tag=${key}`);
+            const response = await axios.post(`http://localhost:8080/one-hero/create?tag=${key}`);
             console.log(response.data);
-            const pane = await axios.get('https://template-red.df.r.appspot.com/pane/all');
+            const pane = await axios.get('http://localhost:8081/dom/search/all');
             setPaneKeys(pane.data);
             const newHero = {
                 dataKey : response.data
@@ -60,9 +60,9 @@ export const HeroProvider = ({ children }) => {
     const deleteHero = async () => {
         try {
             const encodedKey = encodeURIComponent(heroKey);
-            const url = `https://template-red.df.r.appspot.com/one-hero/delete?dataKey=${encodedKey}`;
+            const url = `http://localhost:8080/one-hero/delete?dataKey=${encodedKey}`;
             await axios.delete(url);
-            const pane = await axios.get('https://template-red.df.r.appspot.com/pane/all');
+            const pane = await axios.get('http://localhost:8081/dom/search/all');
             setPaneKeys(pane.data);
         } catch (error) {
             console.error("Error deleting navbar:", error.response || error);
@@ -75,9 +75,9 @@ export const HeroProvider = ({ children }) => {
 
     const addTwoHeroSection = async(key) => {
         try {
-            const response = await axios.post(`https://template-red.df.r.appspot.com/two-hero/create?tag=${key}`);
+            const response = await axios.post(`http://localhost:8080/two-hero/create?tag=${key}`);
             console.log(response.data);
-            const pane = await axios.get('https://template-red.df.r.appspot.com/pane/all');
+            const pane = await axios.get('http://localhost:8081/dom/search/all');
             setPaneKeys(pane.data);
             const newHero = {
                 dataKey : response.data
@@ -91,9 +91,9 @@ export const HeroProvider = ({ children }) => {
     const deleteTwoHeroSection = async () => {
         try {
             const encodedKey = encodeURIComponent(heroKey);
-            const url = `https://template-red.df.r.appspot.com/two-hero/delete?dataKey=${encodedKey}`;
+            const url = `http://localhost:8080/delete?dataKey=${encodedKey}`;
             await axios.delete(url);
-            const pane = await axios.get('https://template-red.df.r.appspot.com/pane/all');
+            const pane = await axios.get('http://localhost:8081/dom/search/all');
             setPaneKeys(pane.data);
         } catch (error) {
             console.error("Error deleting navbar :", error.response || error);

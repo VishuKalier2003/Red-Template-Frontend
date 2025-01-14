@@ -29,7 +29,7 @@ const TwoHeroForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`https://template-red.df.r.appspot.com/two-hero/update?tag=${heroType}`, heroData);
+            const response = await axios.post(`http://localhost:8080/two-hero/update?tag=${heroType}`, heroData);
             if (response.status === 200)
                 fetchTemplate(); // Re-fetch the entire template
         } catch (error) {

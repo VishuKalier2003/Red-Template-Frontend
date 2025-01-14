@@ -18,8 +18,12 @@ const WorkArea = () => {
 
     return(
         <div className="relative">{
-            paneKeys.map((pane, index) => {
-                return <div className="relative poppins-regular md:text-[0.75rem] lg:text-xl back-black fore-white pl-[1.5rem] pr-[1.5rem] md:pt-[0.25rem] lg:pt-[0.5rem] md:pb-[0.25rem] lg:pb-[0.5rem] md:mb-[0.5rem] lg:mb-[1.25rem] rounded-xl cursor-pointer text-center" key={pane.dataKey} onClick={() => {handleClick(pane.dataKey);}}>{pane.tag}</div>
+            paneKeys.map((paneGroup, rowIndex) => {
+                return <div className="relative poppins-regular md:text-[0.75rem] lg:text-xl back-black fore-white pl-[1.5rem] pr-[1.5rem] md:pt-[0.25rem] lg:pt-[0.5rem] md:pb-[0.25rem] lg:pb-[0.5rem] md:mb-[0.5rem] lg:mb-[1.25rem] rounded-xl cursor-pointer text-center flex" key={rowIndex}>{
+                    paneGroup.map((pane, index) => {
+                        return(<div className="relative flex  fore-black w-24 h-24 back-white" key={index} onClick={() => {handleClick(pane.dataKey);}}>{pane.tag}</div>
+                    )})
+                }</div>
             })
         }</div>
     )

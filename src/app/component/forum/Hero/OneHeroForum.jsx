@@ -28,7 +28,7 @@ const OneHeroForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`https://template-red.df.r.appspot.com/one-hero/update?tag=${heroType}`, heroData);
+            const response = await axios.post(`http://localhost:8080/one-hero/update?tag=${heroType}`, heroData);
             if (response.status === 200)
                 fetchTemplate(); // Re-fetch the entire template
         } catch (error) {

@@ -8,9 +8,9 @@ const CommonHero = ({ hero, onClick }) => {
     const[color, setColor] = useState(false);
     useEffect(() => {
         const getColor = async() => {
-        const present = await axios.get(`https://template-red.df.r.appspot.com/pane/search/tag?dataKey=${hero.dataKey}`);
+        const present = await axios.get(`http://localhost:8081/dom/search/nodeByEntry/tag?dataKey=${hero.dataKey}`);
         if(present.data !== undefined) {
-            const colorValue = await axios.get(`https://template-red.df.r.appspot.com/one-hero/color?dataKey=${hero.dataKey}`);
+            const colorValue = await axios.get(`http://localhost:8080/one-hero/color?dataKey=${hero.dataKey}`);
             setColor(colorValue.data);
             }
         }

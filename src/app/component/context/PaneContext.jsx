@@ -12,7 +12,7 @@ export const PaneProvider = ({ children }) => {
     const [paneKeys , setPaneKeys] = useState([]);
 
     const showPaneKeys = async () => {
-        const pane = await axios.get('https://template-red.df.r.appspot.com/pane/all');
+        const pane = await axios.get('http://localhost:8081/dom/search/all');
         setPaneKeys(pane.data);
     }
 

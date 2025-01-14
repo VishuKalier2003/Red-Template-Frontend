@@ -14,7 +14,7 @@ export const TemplateProvider = ({ children }) => {
 
     const fetchTemplate = async () => {
         try {
-            const response = await axios.get("https://template-red.df.r.appspot.com/template/all");
+            const response = await axios.get("http://localhost:8080/template/all");
             setTemplate(response.data);
         } catch (error) {
             console.error("Failed : "+error);
@@ -23,7 +23,7 @@ export const TemplateProvider = ({ children }) => {
 
     const updateTag = async (id) => {
         const encodedKey = encodeURIComponent(id);
-        const tag = await axios.get(`https://template-red.df.r.appspot.com/pane/get/tag?dataKey=${encodedKey}`);
+        const tag = await axios.get(`http://localhost:8081/dom/search/nodeByEntry/tag?dataKey=${encodedKey}`);
         console.log("Tag Name : "+tag.data);
         setActive(tag.data);
     }
